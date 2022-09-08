@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'Status OK';
+    return 'Status OK!!';
 });
 
 Route::get('test', function () {
