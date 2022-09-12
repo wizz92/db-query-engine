@@ -7,9 +7,6 @@
     "paths": {
         "/": {
             "get": {
-                "tags": [
-                    "Status check"
-                ],
                 "description": "Home page",
                 "responses": {
                     "default": {
