@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return 'Status OK!!';
+    return 'Status OK for deploying';
 });
 
 Route::get('test', function () {
