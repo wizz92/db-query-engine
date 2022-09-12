@@ -16,7 +16,7 @@ function requestOriginIsValid()
     if (!array_key_exists('Origin', $rh)) {
         return true;
     } // this should mean it's not ajax request
-    dd('da');
+//    dd('da');
     $urls = AppClient::getAjaxURLsArray();
     $allows_to_proceed = false;
 

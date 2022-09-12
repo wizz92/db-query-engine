@@ -8,8 +8,8 @@ Route::group(['middleware' => RequestLogMiddleware::class], function () {
          ->middleware([DatabaseEngineAuthMiddleware::class]);
     Route::put('custom-query/{id}/change-status/{status}', 'CustomQueryController@changeStatus')
         ->middleware(AdminAuthMiddleware::class);
-     Route::group(['middleware' => 'auth.basic.once'], function () {
+//     Route::group(['middleware' => 'auth.basic.once'], function () {
         Route::get('custom-query/{id}/logs', 'CustomQueryController@queryLogs');
         Route::resource('custom-query', 'CustomQueryController');
-     });
+//     });
 });
