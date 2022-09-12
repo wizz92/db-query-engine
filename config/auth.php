@@ -68,10 +68,6 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'dqe' => [
-            'driver' => 'database',
-            'table' => 'admin_dashboard_auths'
-        ]
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
