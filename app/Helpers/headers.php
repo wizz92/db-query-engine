@@ -1,7 +1,5 @@
 <?php
 
-use App\Models\AppClient;
-
 /**
 * makes array of request headers
 * @return true if value of $rh[‘Origin’] is in array of urls otherwise returns false
@@ -16,8 +14,7 @@ function requestOriginIsValid()
     if (!array_key_exists('Origin', $rh)) {
         return true;
     } // this should mean it's not ajax request
-//    dd('da');
-    $urls = AppClient::getAjaxURLsArray();
+    $urls = ['https://db-query-engine.site.supplies', 'http://db-query-engine.site.supplies'];
     $allows_to_proceed = false;
 
     foreach ($urls as $url) {
