@@ -25,18 +25,13 @@
                 ],
                 "summary": "Get list of custom queries",
                 "operationId": "execute-custom-queries",
-                "consumes": [
-                    "application/form-data"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/xml"
-                ],
-                "parameters": [
-                ],
                 "responses": {
                     "200": {
-                        "description": "success"
+                        "description": "success",
+                        "content": {
+                            "application/json": {},
+                            "text/xml": {}
+                        }
                     }
                 }
 
