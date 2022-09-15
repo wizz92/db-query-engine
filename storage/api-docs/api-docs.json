@@ -47,47 +47,42 @@
                 ],
                 "summary": "Create new query",
                 "operationId": "store-custom-query",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "queryName",
-                        "in": "formData",
-                        "description": "Unique query name",
-                        "default": "mongo",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "databaseType",
-                        "in": "formData",
-                        "description": "Storage types: 1 - mysql, 2 - mongodb, 3 - clickhouse",
-                        "default": 2,
-                        "required": true,
-                        "type": "integer",
-                        "enum": [1, 2, 3]
-                    },
-                    {
-                        "name": "query",
-                        "in": "formData",
-                        "default": "{\"collection\": \"notifications\",  \"body\" : {\"order_id\": {ORDER_ID}}}",
-                        "description": "Database query body. Specific format for mongo - (collection - collection name, body - condition). For MySQL - SQL Query",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "description",
-                        "in": "formData",
-                        "description": "Information about query",
-                        "required": true,
-                        "type": "string"
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "queryName": {
+                                        "description": "Unique query name",
+                                        "type": "string",
+                                        "required": true,
+                                        "default": "mongo"
+                                    },
+                                    "databaseType": {
+                                        "description": "Storage types: 1 - mysql, 2 - mongodb, 3 - clickhouse",
+                                        "type": "integer",
+                                        "default": 2,
+                                        "enum": [1, 2, 3],
+                                        "required": true
+                                    },
+                                    "query": {
+                                        "description": "Database query body. Specific format for mongo - (collection - collection name, body - condition). For MySQL - SQL Query",
+                                        "type": "string",
+                                        "default": "{\"collection\": \"notifications\",  \"body\" : {\"order_id\": {ORDER_ID}}}",
+                                        "required": true
+                                    },
+                                    "description": {
+                                        "description": "Information about query",
+                                        "type": "string",
+                                        "required": true
+                                    }
+                                },
+                                "required": ["queryName", "databaseType", "query", "description"]
+                            }
+                        }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "success"
