@@ -178,8 +178,7 @@ class CustomQueryController extends Controller
 
         $query = $this->customQueryRepository->updateStatus(
             $this->customQueryRepository->find($id),
-            $status,
-            $this->request->user()->id
+            $status
         );
 
         return $this
