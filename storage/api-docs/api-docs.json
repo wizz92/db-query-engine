@@ -29,12 +29,10 @@
                     "200": {
                         "description": "success",
                         "content": {
-                            "application/json": {},
-                            "text/xml": {}
+                            "application/json": {}
                         }
                     }
                 }
-
             },
             "post": {
                 "tags": [
@@ -207,27 +205,24 @@
                 ],
                 "summary": "Get query logs",
                 "operationId": "get-custom-query-logs",
-                "consumes": [
-                    "application/form-data"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/xml"
-                ],
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "description": "Unique query id",
                         "required": true,
-                        "type": "number"
+                        "schema": {
+                            "type": "integer"
+                        }
                     },
                     {
                         "name": "limit",
                         "in": "query",
                         "description": "Last logs count",
                         "required": false,
-                        "type": "number"
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
