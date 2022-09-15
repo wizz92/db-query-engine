@@ -90,39 +90,35 @@
                 ],
                 "summary": "Execute query and get results",
                 "operationId": "execute-custom-query",
-                "consumes": [
-                    "application/x-www-form-urlencoded"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/xml"
-                ],
-                "parameters": [
-                    {
-                        "name": "queryName",
-                        "in": "formData",
-                        "description": "Unique query name",
-                        "required": true,
-                        "default": "mongo",
-                        "type": "string"
-                    },
-                    {
-                        "name": "dqeAccessToken",
-                        "in": "formData",
-                        "description": "database query engine access token",
-                        "required": true,
-                        "default": "123123123",
-                        "type": "string"
-                    },
-                    {
-                        "name": "params",
-                        "in": "formData",
-                        "description": "query params",
-                        "required": false,
-                        "default": "{\"ORDER_ID\": 7318461}",
-                        "type": "string"
+                "requestBody": {
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "queryName": {
+                                        "description": "Unique query name",
+                                        "type": "string",
+                                        "required": true,
+                                        "default": "mongo"
+                                    },
+                                    "dqeAccessToken": {
+                                        "description": "database query engine access token",
+                                        "type": "string",
+                                        "required": true,
+                                        "default": "123123123"
+                                    },
+                                    "params": {
+                                        "description": "query params",
+                                        "type": "string",
+                                        "required": false,
+                                        "default": "{\"ORDER_ID\": 7318461}"
+                                    }
+                                }
+                            }
+                        }
                     }
-                ],
+                },
                 "responses": {
                     "200": {
                         "description": "success"
@@ -135,7 +131,7 @@
                 "tags": [
                     "DATABASE QUERY ENGINE"
                 ],
-                "summary": "Chance query status. Only for admin users",
+                "summary": "Chance query status.",
                 "operationId": "custom-query-change-status",
                 "parameters": [
                     {
