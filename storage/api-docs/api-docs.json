@@ -137,27 +137,24 @@
                 ],
                 "summary": "Chance query status. Only for admin users",
                 "operationId": "custom-query-change-status",
-                "consumes": [
-                    "application/form-data"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/xml"
-                ],
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
                         "description": "Unique query id",
                         "required": true,
-                        "type": "number"
+                        "schema": {
+                            "type": "integer"
+                        }
                     },
                     {
                         "name": "status",
                         "in": "path",
                         "description": "Statuses: 2 - STATUS_APPROVED, 4 - STATUS_BLOCKED",
                         "required": true,
-                        "type": "number"
+                        "schema": {
+                            "type": "integer"
+                        }
                     }
                 ],
                 "responses": {
@@ -174,21 +171,16 @@
                 ],
                 "summary": "Get custom query by name",
                 "operationId": "get-custom-query",
-                "consumes": [
-                    "application/form-data"
-                ],
-                "produces": [
-                    "application/json",
-                    "text/xml"
-                ],
                 "parameters": [
                     {
                         "name": "name",
                         "in": "path",
                         "description": "Unique query name",
                         "required": true,
-                        "default": "testCustomQuery",
-                        "type": "string"
+                        "schema": {
+                            "type": "string",
+                            "default": "testCustomQuery"
+                        }
                     }
                 ],
                 "responses": {
