@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Service\DatabaseQueryEngine\Invoker;
 
 use App\Service\DatabaseQueryEngine\Invoker\Contracts\ConcreteInvokerInterface;
