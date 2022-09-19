@@ -3,16 +3,14 @@
 
 namespace App\Service\DatabaseQueryEngine\Invoker;
 
-use App\Models\Users\User;
-use App\Service\DatabaseQueryEngine\Invoker\Contracts\BaseInvokerInterface;
 use App\Service\DatabaseQueryEngine\Invoker\Contracts\ConcreteInvokerInterface;
-use App\Service\DatabaseQueryEngine\Invoker\Contracts\InvokerInterface;
 use App\Service\DatabaseQueryEngine\Invoker\Exceptions\QueryExecuteException;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Database\QueryException;
 
 /**
  * Class MySQLInvoker
+ *
  * @package App\Service\DatabaseQueryEngine
  */
 class MySQLInvoker implements ConcreteInvokerInterface

@@ -61,6 +61,7 @@ class RulesResolver implements RulesResolverInterface
             }
             $rules[] = app()->make($rule);
         }
+
         return $rules;
     }
 }
