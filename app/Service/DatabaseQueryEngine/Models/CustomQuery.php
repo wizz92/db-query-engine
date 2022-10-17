@@ -2,13 +2,13 @@
 
 namespace App\Service\DatabaseQueryEngine\Models;
 
-use App\Models\Discounts\Discount;
 use App\Service\DatabaseQueryEngine\Models\Contracts\CustomQueryInterface;
 use App\Base\Eloquent\BaseModel as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class CustomQueries
+ *
  * @package App\Service\DatabaseQueryEngine\Models
  */
 class CustomQuery extends Model implements CustomQueryInterface
@@ -185,10 +185,10 @@ class CustomQuery extends Model implements CustomQueryInterface
      */
     public function hasTimeoutsLimit(): bool
     {
-        $maxTimeouts = in_array($this->id, static::MAX_TIMEOUT_QUERY_EXCEPTIONS_IDS)
-            ? static::MAX_TIMEOUTS_EXCEPTION
-            : static::MAX_TIMEOUTS;
+//        $maxTimeouts = in_array($this->id, static::MAX_TIMEOUT_QUERY_EXCEPTIONS_IDS)
+//            ? static::MAX_TIMEOUTS_EXCEPTION
+//            : static::MAX_TIMEOUTS;
 
-        return $this->query_timeout_count >= $maxTimeouts;
+        return $this->query_timeout_count >= static::MAX_TIMEOUTS_EXCEPTION;
     }
 }

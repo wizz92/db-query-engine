@@ -40,6 +40,7 @@ class QueryLogger implements QueryLoggerInterface
          * @var CustomQueryResultsDTO $queryResults
          */
         $queryResults = $invoker->getQueryResults();
+
         if ($queryResults instanceof CustomQueryResultsDTO == false ||
             $invoker->getConcreteInvoker() instanceof ClickhouseInvoker == true) {
             return;
