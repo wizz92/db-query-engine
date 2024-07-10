@@ -53,7 +53,7 @@ class QueryLogger implements QueryLoggerInterface
             'request_log_id' => $queryResults->getRequestLogId(),
             'execution_time' => $logs['time'],
             'query' => $logs['query'],
-            'results' => json_encode($queryResults->getResults()),
+//            'results' => json_encode($queryResults->getResults()),
             'status' => CustomQueryLog::STATUS_SUCCESS,
         ]);
 
