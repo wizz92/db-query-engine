@@ -14,7 +14,7 @@ class CustomQueryLog extends Model implements CustomQueryLogInterface
     const STATUS_SUCCESS = 1;
     const STATUS_FAILED = 2;
     const STATUS_EXECUTION_BLOCKED = 3;
-    protected $table = 'custom_query_logs';
+    protected $table = 'custom_query_logs2'; // we changed name from custom_query_logs after accident 09.06.2024
 
     protected $connection = 'mysql';
     protected $fillable = [
