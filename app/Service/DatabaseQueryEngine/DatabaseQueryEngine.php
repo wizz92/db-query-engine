@@ -76,10 +76,6 @@ class DatabaseQueryEngine implements DatabaseQueryEngineInterface
      */
     public function executeQuery($data)
     {
-
-        var_dump(env('DQE_MYSQL_HOST'));
-
-
         return $this
             ->ensureDataObject($data, ExecuteCustomQueryDTO::class)
             ->securityProxy
