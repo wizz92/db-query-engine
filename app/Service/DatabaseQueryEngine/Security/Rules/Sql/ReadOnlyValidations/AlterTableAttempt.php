@@ -24,8 +24,10 @@ class AlterTableAttempt implements DbQueryAttemptInterface
                 $table->increments('id');
             });
         } catch (QueryException $exception) {
-            $exception->getMessage();
-            if (strpos($exception->getMessage(), "ALTER command denied to user") !== false) {
+            if (
+                strpos($exception->getMessage(), "ALTER command denied to user") !== false ||
+                strpos($exception->getMessage(), "server is running with the --read-only option") !== false
+            ) {
                 return true;
             }
         }

@@ -22,8 +22,10 @@ class DropTableAttempt implements DbQueryAttemptInterface
         try {
             \Schema::connection('dqe_mysql')->dropIfExists('test_dqe_read_only');
         } catch (QueryException $exception) {
-            $exception->getMessage();
-            if (strpos($exception->getMessage(), "DROP command denied to user") !== false) {
+            if (
+                strpos($exception->getMessage(), "DROP command denied to user") !== false ||
+                strpos($exception->getMessage(), "server is running with the --read-only option") !== false
+            ) {
                 return true;
             }
         }
